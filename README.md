@@ -225,7 +225,7 @@
     * If the node to be deleted has two children, it must be replaced with its first in-order successor (not predecessor)
     * Your function must return a pointer to the new root node of the tree after removing the desired value
 
-### 29. Big O #BST
+### 29. Big O BST
 * What are the average time complexities of those operations on a Binary Search Tree (one answer per line):
     * Inserting the value n
     * Removing the node with the value n
@@ -279,7 +279,7 @@
     * You are not allowed to rotate
     * You can only have 2 functions in your file
 
-### 35. Big O #AVL Tree
+### 35. Big O AVL Tree
 * What are the average time complexities of those operations on an AVL Tree (one answer per line):
     * Inserting the value n
     * Removing the node with the value n
@@ -330,12 +330,12 @@
     * You can assume size is a valid address
     * Since we are using Max Heap, the returned array must be sorted in descending order
 
-### 41. Big O #Binary Heap
+### 41. Big O Binary Heap
 * What are the average time complexities of those operations on a Binary Heap (one answer per line):
     * Inserting the value n
     * Extracting the root node
     * Searching for a node in a binary heap of size n
 
 ## Authors 
-* * **Fares Sassi** - [Fares84](https://github.com/Fares84)
+* **Fares Sassi** - [Fares84](https://github.com/Fares84)
 * **Huy Nguyen** - [huy75](https://github.com/huy75)
