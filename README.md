@@ -12,8 +12,9 @@
 * All files are created and compiled on Ubuntu 14.04.4 LTS on gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
 * All files are linted for syntax and style with Betty
 
-##Tasks
-### 0. New node
+## Tasks
+
+### [0. New node](./0-binary_tree_node.c)
 * Write a function that creates a binary tree node
     * Prototype: binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
     * Where parent is a pointer to the parent node of the node to create
