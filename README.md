@@ -1,6 +1,6 @@
 # Binary trees
 
-## Learning objectives
+## Learning objectives:bulb:
 * What is a binary tree
 * What is the difference between a binary tree and a Binary Search Tree
 * What is the possible gain in terms of time complexity compared to linked lists
@@ -185,7 +185,7 @@
     * Where tree is a pointer to the root node of the tree to check
     * Your function must return 1 if tree is a valid BST, and 0 otherwise
     * If tree is NULL, return 0
-Properties of a Binary Search Tree:
+* Properties of a Binary Search Tree:
     * The left subtree of a node contains only nodes with values less than the node’s value
     * The right subtree of a node contains only nodes with values greater than the node’s value
     * The left and right subtree each must also be a binary search tree
@@ -237,7 +237,7 @@ Properties of a Binary Search Tree:
     * Where tree is a pointer to the root node of the tree to check
     * Your function must return 1 if tree is a valid AVL Tree, and 0 otherwise
     * If tree is NULL, return 0
-Properties of an AVL Tree:
+* Properties of an AVL Tree:
     * An AVL Tree is a BST
     * The difference between heights of left and right subtrees cannot be more than one
     * The left and right subtree each must also be a binary search tree
@@ -291,7 +291,7 @@ Properties of an AVL Tree:
     * Where tree is a pointer to the root node of the tree to check
     * Your function must return 1 if tree is a valid Max Binary Heap, and 0 otherwise
     * If tree is NULL, return 0
-Properties of a Max Binary Heap:
+* Properties of a Max Binary Heap:
     * It’s a complete tree
     * In a Max Binary Heap, the value at root must be maximum among all values present in Binary Heap
     * The last property must be recursively true for all nodes in Binary Tree
