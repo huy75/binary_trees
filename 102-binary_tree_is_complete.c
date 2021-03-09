@@ -10,33 +10,30 @@ size_t binary_tree_size(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (binary_tree_size(tree->left)
-		+ binary_tree_size(tree->right) + 1);
+	return (binary_tree_size(tree->left) +
+		binary_tree_size(tree->right) + 1);
 }
 
 /**
- * binary_tree_levelorder - goes through a binary tree
- * with levelorder traversal
- * @tree: pointer to the root node of the tree
- * @func: a pointer to the function to call for each node
- * If tree or func is NULL, do nothing
+ * binary_tree_is_complete - checks if a binary tree is complete
+ * @tree: Pointer to root node of tree to check
  *
- * Return: none
+ * Return: 1, 0 if NULL or not complete
  */
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
+int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	binary_tree_t **queue;
 	binary_tree_t *current;
-	int start = 0, index = 0, size;
+	int first = 1, start = 0, index = 0, size;
 
-	if (!tree || !func)
-		return;
+	if (!tree)
+		return (0);
 
 	size = binary_tree_size(tree);
 
 	queue = malloc(sizeof(binary_tree_t *) * size);
 	if (!queue)
-		return;
+		return (0);
 
 	queue[start] = (binary_tree_t *)tree;
 	index++;
@@ -44,7 +41,6 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	while (start < size)
 	{
 		current = queue[start];
-		func(current->n);
 		start++;
 
 		if (current->left)
@@ -54,9 +50,26 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		}
 		if (current->right)
 		{
-			queue[index] = current->right;
-			index++;
+			 queue[index] = current->right;
+			 index++;
 		}
+		else
+			if (current->left && !first)
+			{
+				free(queue);
+				return (0);
+			}
+
+		if (current->left && !current->right)
+			first = 0;
+
+		if (!current->left)
+			if (current->right)
+			{
+				free(queue);
+				return (0);
+			}
 	}
 	free(queue);
+	return (1);
 }

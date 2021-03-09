@@ -1,4 +1,4 @@
-include <stdlib.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "binary_trees.h"
 
@@ -20,6 +20,7 @@ int main(void)
 	root->left->left = binary_tree_node(root->left, 10);
 
 	binary_tree_print(root);
+
 	complete = binary_tree_is_complete(root);
 	printf("Is %d complete: %d\n", root->n, complete);
 	complete = binary_tree_is_complete(root->left);
