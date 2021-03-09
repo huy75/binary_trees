@@ -1,44 +1,20 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_height - measures the height of a binary tree
- * @tree: pointer to the root node of the tree to measure the height
+ * binary_tree_size - measures the size of a binary tree
+ * @tree: pointer to root node of tree to measure size
  *
- * Return: height of tree, 0 if NULL
+ * Return: size of binary tree, 0 if tree is NULL
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t binary_tree_size(const binary_tree_t *tree)
 {
-	size_t hl;
-	size_t hr;
-
 	if (!tree)
 		return (0);
-
-	hl = tree->left ? 1 + binary_tree_height(tree->left) : 0;
-	hr = tree->right ? 1 + binary_tree_height(tree->right) : 0;
-	return (hl > hr ? hl : hr);
+	return (binary_tree_size(tree->left) + binary_tree_size(tree->right) + 1);
 }
 
 /**
- * each_level - prints each level
- * @tree: pointer to root of tree
- * @func: function to be called on each node
- * @level: the tree depth level to print
- */
-void each_level(const binary_tree_t *tree, void (*func)(int), size_t level)
-{
-	if (!level)
-		func(tree->n);
-	else
-	{
-		each_level(tree->left, func, level - 1);
-		each_level(tree->right, func, level - 1);
-	}
-}
-
-
-/**
- * binary_tree_levelorder - goes through a binary tree using levelorder traversal
+ * binary_tree_levelorder - goes through a binary tree with levelorder traversal
  * @tree: pointer to the root node of the tree
  * @func: a pointer to the function to call for each node
  * If tree or func is NULL, do nothing
@@ -47,12 +23,38 @@ void each_level(const binary_tree_t *tree, void (*func)(int), size_t level)
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	size_t h, idx;
+	binary_tree_t **queue;
+	binary_tree_t *current;
+	int start = 0, index = 0, size;
 
 	if (!tree || !func)
 		return;
 
-	h = binary_tree_height(tree);
-	for (idx = 0; idx <= h; idx++)
-		each_level(tree, func, idx);
+	size = binary_tree_size(tree);
+
+	queue = malloc(sizeof(binary_tree_t *) * size);
+	if (!queue)
+		return;
+
+	queue[start] = (binary_tree_t *)tree;
+	index++;
+
+	while (start < size)
+	{
+		current = queue[start];
+		func(current->n);
+		start++;
+
+		if (current->left)
+		{
+			queue[index] = current->left;
+			index++;
+		}
+		if (current->right)
+		{
+			queue[index] = current->right;
+			index++;
+		}
+	}
+	free(queue);
 }
