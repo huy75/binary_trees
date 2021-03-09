@@ -36,7 +36,7 @@ typedef struct binary_tree_s binary_tree_t;
 
 ### [0. New node](./0-binary_tree_node.c)
 * Write a function that creates a binary tree node
-    * Prototype: binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+    * Prototype: ```bash binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);```
     * Where parent is a pointer to the parent node of the node to create
     * And value is the value to put in the new node
     * When created, a node does not have any child
