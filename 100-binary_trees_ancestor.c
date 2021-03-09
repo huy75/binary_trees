@@ -50,7 +50,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		diff++;
 	}
 
-	/* first has more epth than second */
+	/* first has more depth than second */
 	while (diff)
 	{
 		tmp_f = tmp_f->parent;
