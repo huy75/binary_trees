@@ -2,7 +2,7 @@
 #include "limits.h"
 
 /**
- * is_bst_ - checks if a binary tree is a valid binary search tree.
+ * is_bst - checks if a binary tree is a valid binary search tree.
  * @tree: pointer to the root node of the tree.
  * @lo: the value of the smallest node visited thus far.
  * @hi: the value of the largest node visited this far.
