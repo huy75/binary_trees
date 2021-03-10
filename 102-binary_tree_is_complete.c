@@ -13,6 +13,28 @@ size_t binary_tree_size(const binary_tree_t *tree)
 		binary_tree_size(tree->right) + 1);
 }
 
+
+/**
+ * is_complete - checks if a binary tree is complete
+ * @tree: pointer to the root node of the tree
+ * @index: index of the node
+ * @num: number of the nodes
+ *
+ * Return: 1 if the tree is complete, otherwise 0
+ */
+int is_complete(const binary_tree_t *tree, size_t index, size_t num)
+{
+	if (tree == NULL)
+		return (1);
+
+	if (index >= num)
+		return (0);
+
+	return (is_complete(tree->left, 2 * index + 1, num) *
+		is_complete(tree->right, 2 * index + 2, num));
+}
+
+
 /**
  * binary_tree_is_complete - checks if a binary tree is complete
  * @tree: Pointer to root node of tree to check
@@ -20,44 +42,14 @@ size_t binary_tree_size(const binary_tree_t *tree)
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	binary_tree_t **queue, *current;
-	int first = 1, start = 0, index = 0, size;
 
-	if (!tree)
+	size_t count;
+	size_t index = 0;
+
+	if (tree == NULL)
 		return (0);
 
-	size = binary_tree_size(tree);
+	count = binary_tree_size(tree);
 
-	queue = malloc(sizeof(binary_tree_t *) * size);
-	if (!queue)
-		return (0);
-
-	queue[start] = (binary_tree_t *)tree;
-	index++;
-
-	while (start < size)
-	{
-		current = queue[start++];
-		if (current->left)
-			queue[index++] = current->left;
-		if (current->right)
-			queue[index++] = current->right;
-		else
-			if (current->left && !first)
-			{
-				free(queue);
-				return (0);
-			}
-
-		if (current->left && !current->right)
-			first = 0;
-		if (!current->left)
-			if (current->right)
-			{
-				free(queue);
-				return (0);
-			}
-	}
-	free(queue);
-	return (1);
+	return (is_complete(tree, index, count));
 }
