@@ -35,5 +35,5 @@ bst_t *bst_insert(bst_t **tree, int value)
 		new->left = binary_tree_node(new, value);
 		return (new->left);
 	}
-	return(NULL);
+	return (NULL);
 }
