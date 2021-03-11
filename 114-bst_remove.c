@@ -99,8 +99,8 @@ bst_t *two_children(bst_t *root, bst_t *del_node)
 		right_node->parent->left = right_node->right;
 		right_node->right->parent = right_node->parent;
 	}
-	free(right_node);
-	return(root);
+	free (right_node);
+	return (root);
 }
 
 
@@ -142,6 +142,6 @@ bst_t *bst_remove(bst_t *root, int value)
 
 	/* the del_node has only one child */
 	if (del_node->left)
-		return(left(root, del_node));
-	return(right(root, del_node));
+		return (left(root, del_node));
+	return (right(root, del_node));
 }
