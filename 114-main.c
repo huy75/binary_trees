@@ -33,5 +33,6 @@ int main(void)
 	printf("Removed 68...\n");
 	binary_tree_print(tree);
 	binary_tree_delete(tree);
+
 	return (0);
 }
