@@ -136,7 +136,6 @@ bst_t *bst_remove(bst_t *root, int value)
 		return (root);
 	}
 	/* the del_node has two children */
-
 	if (del_node->left && del_node->right)
 		return (two_children(root, del_node));
 
